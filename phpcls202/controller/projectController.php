@@ -73,27 +73,27 @@ if(isset($_POST['saveProject'])){
 
 // This is for Update
 if(isset($_POST['updateBanner'])){
-    $banner_id          =  $_POST['banner_id'];
-    $title              =  $_POST['title'];
-    $sub_title          =  $_POST['sub_title'];
-    $details            =  $_POST['details'];
-    $image              =  $_POST['image'];
+    $project_id          =  $_POST['project_id'];
+    $category_id              =  $_POST['category_id'];
+    $project_name          =  $_POST['project_name'];
+    $project_link            =  $_POST['project_link'];
+
    
-    if (empty($title) || empty($sub_title ) || empty($details)) {
+    if (empty($category_id) || empty($project_name ) || empty($project_link)) {
         $message = "All fields are required";
     }else{
-        $updateQry = "UPDATE banners SET title= '{$title}', sub_title= '{$sub_title}', details= '{$details}' WHERE id = '{$banner_id}'";
+        $updateQry = "UPDATE our_projects SET title= '{$category_id}', sub_title= '{$project_name}', details= '{$project_link}' WHERE id = '{$project_id}'";
         $isSubmited     =  mysqli_query($dbCon, $updateQry);
     
         if ($isSubmited == true) {
-            $message   =  "Banner Update Successfull";
+            $message   =  "Project Update Successfull";
              echo $message;
         } else {
             $message    =  "Update Faild";
         }  
         //header("Location: ../bannerAdd.php?msg={$message}");
     }
-    header("Location: ../banner/bannerUpdate.php?banner_id={$banner_id}&msg={$message}");
+    header("Location: ../ourProject/projectUpdate.php?project_id={$project_id}&msg={$message}");
 
 }else{
     echo "Not Update";
