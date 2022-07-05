@@ -114,15 +114,18 @@ include '../includes/head.php';?>
 		<thead>
 			<tr>
 				<th width ="5%">SL.</th>
-				<th width = "30%">Project name</th>
-				<th width = "30%">Project link</th>
-				<th width = "25%">Project thumb</th>
+				<th width = "15%">Catagory name</th>
+				<th width = "25%">Project name</th>
+				<th width = "25%">Project link</th>
+				<th width = "20%">Project thumb</th>
 				<th width = "10%" class="text-center">Actions</th>
 			</tr>
 		</thead>
 		<tbody>
 		<?php
-				$selectQuery = "SELECT * FROM our_projects WHERE active_status=1";
+				$selectQuery = "SELECT our_projects.*, categories.category_name FROM `our_projects`
+				INNER JOIN categories ON our_projects.category_id = categories.id
+				WHERE our_projects.active_status = 1";
 				$projectList = mysqli_query($dbCon, $selectQuery);
 				//var_dump($projectList);
 				// if (!empty($projectList)){
@@ -132,6 +135,7 @@ include '../includes/head.php';?>
 				?>
 				<tr>
 				<td><?php echo ++$key;?></td>
+				<td><?php echo $value ['category_name'];?></td>
 				<td><?php echo $value ['project_name'];?></td>
 				<td><a href="#"><?php echo $value ['project_link'];?></a></td>
 				<td>
