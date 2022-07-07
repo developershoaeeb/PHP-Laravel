@@ -1,3 +1,8 @@
+<?php session_start();
+if(!empty($_SESSION['userName'])){
+	header('Location:../login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <html lang="en">
@@ -13,8 +18,21 @@ if (basename(__DIR__) != 'phpcls23'){
 	$isInternal = false;
 }
 
-include '../includes/head.php';?>
-<?php require '../controller/dbConflig.php';?>
+?>
+<?php
+echo "<pre>";
+echo $_SESSION['userName'] . ' Banner ';
+// print_r($_SESSION);
+echo "</pre>";
+
+// // var_dump( $_SESSION);
+// // var_dump($_SESSION['name']) ;
+// die('Section status');
+?>
+
+<?php
+include '../includes/head.php';
+require '../controller/dbConflig.php';?>
 <body>
 	<!-- Main navbar -->
 	<?php include '../includes/mainNavbar.php';?>

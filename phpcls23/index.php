@@ -1,3 +1,8 @@
+<?php session_start();
+// if(empty($_SESSION['userName'])){
+// 	header('Location:login.php');
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <html lang="en">
@@ -14,9 +19,29 @@ if (basename(__DIR__) != 'phpcls23'){
 	$baseURL = '';
 	$isInternal = false;
 }
+include './includes/head.php';
+?>
+
+<?php
+
+if (!empty($_SESSION['successMsg'])) {
+	echo "<h6>{$_SESSION['successMsg']}</h6>";
+	unset($_SESSION['successMsg']);
+}
+
+// $_SESSION['userName'] = 'shoaeeb';
+// echo "<pre>";
+// echo $_SESSION['userName'] . ' Index ';
+// // print_r($_SESSION);
+// echo "</pre>";
+
+// // var_dump( $_SESSION);
+// // var_dump($_SESSION['name']) ;
+
+// die('Section status');
+?>
 
 
-include './includes/head.php';?>
 <body>
 	<!-- Main navbar -->
 	<?php include './includes/mainNavbar.php';?>
