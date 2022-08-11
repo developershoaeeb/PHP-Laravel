@@ -58,7 +58,7 @@ if(isset($_POST['saveProject'])){
 
         $isSubmited     =  mysqli_query($dbCon, $insertQry);
         if ($isSubmited == true) {
-            $message   =  "Banner Insert Successfull";
+            $message   =  "Project Insert Successfull";
              echo $message;
         } else {
             $message    =  "Faild";

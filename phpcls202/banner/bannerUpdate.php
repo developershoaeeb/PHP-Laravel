@@ -149,14 +149,31 @@ if (basename(__DIR__) != 'phpcls202'){
 						<textarea id="details" class="form-control" cols="5" rows="5" name="details" required ><?php echo $banner['title'];?></textarea>
 					</div>
 				</div>
-
+				<div class="form-group">
+									<label class="col-lg-2 control-label text-semibold">Single file upload:</label>
+									<div class="col-lg-10">
+										<input type="file" class="file-input">
+										<span class="help-block">Automatically convert a file input to a bootstrap file input widget by setting its class as <code>file-input</code>.</span>
+									</div>
+								</div>
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="image">Image</label>
 					<div class="col-lg-10">
 						<input type="file" id="image" class="form-control" name="image" value="<?php echo '../uploads/bannerImage/'.$value['image'];?>">
 					</div>
 				</div>
-					
+				<div class="img-div">
+					<!-- <img src="../uploads/bannerImageIMG_20180620_101055.jpg" alt="image" srcset=""> -->
+
+				<img class="" width="90" height="auto" src="<?php echo '../uploads/bannerImage/'.$banner['image'];?>" alt="" sizes="" srcset="">
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label text-semibold">Multiple file upload:</label>
+						<div class="col-lg-10">
+							<input type="file" class="file-input" multiple="multiple">
+							<span class="help-block">Automatically convert a file input to a bootstrap file input widget by setting its class as <code>file-input</code>.</span>
+						</div>
+				</div>
 
 				<?php } ?>
 
