@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <!-- <input type="text" id="defultValue" value="10"> -->
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Sl</th>
+          <th scope="col">Product name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th >1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>
+            <button class="editeBtn" editeId="1">Edite</button>
+            <button class="deletButtion" deleteId="1">Delete
+              <!-- <span id="defultValue">10</span> -->
+              <span class="defultValue">10</span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th >2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>
+            <button class="editeBtn" editeId="2">Edite</button>
+            <button class="deletButtion" deleteId="2">
+              Delete
+              <span class="defultValue">20</span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th >3</th>
+          <td >Larry the Bird</td>
+          <td>@twitter</td>
+          <td>
+            <button class="editeBtn" editeId="3">Edite</button>
+            <button class="deletButtion" deleteId="3">
+              Delete
+              <span class="defultValue">30</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+<hr>
+    <form id="registationform" action="" method="">
+    <div class="mb-3">
+
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" name="email">
+      <div id="email" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+
+    <div class="mb-3">
+    <select class="form-select" aria-label="Default select example" name="gender"> 
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Others">Others</option>
+    </select>
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input type="text" class="form-control" id="phone" name="phone">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.deletButtion').click(function(){
+          // alert('Button Press');
+        //  alert($(this));
+          // let deleteId = $(".deletButtion").attr("deleteId");
+          let deleteId = $(this).attr("deleteId");
+          // let defultVAlue = $('#defultValue').text();
+          let defultVAlue = $(this).find('span').text();
+          alert(defultVAlue);
+            // alert(deleteId * defultVAlue );
+        });
+
+        $('.editeBtn').click(function(){
+          let editeId = $(this).attr("editeId");
+          alert(editeId);
+
+        });
+
+        // Form
+        $('#registationform').submit(function(){
+          alert("Submited");
+        })
+
+      });
+    </script>
+
+  </body>
+</html>
