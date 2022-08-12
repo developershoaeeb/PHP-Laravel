@@ -66,24 +66,41 @@
     </table>
 <hr>
     <form id="registationform" action="" method="">
-    <div class="mb-3">
 
+    <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
       <input type="email" class="form-control" id="email" name="email">
-      <div id="email" class="form-text">We'll never share your email with anyone else.</div>
     </div>
 
     <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input type="text" class="form-control" id="phone" name="phone">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Select Gender</label>
     <select class="form-select" aria-label="Default select example" name="gender"> 
-      <option value="">Select Gender</option>
+      <option value="">Select</option>
       <option value="Male">Male</option>
       <option value="Female">Female</option>
       <option value="Others">Others</option>
     </select>
     </div>
+
     <div class="mb-3">
-      <label for="phone" class="form-label">Phone</label>
-      <input type="text" class="form-control" id="phone" name="phone">
+      <label class="form-label">FB Account Status</label>
+    <select class="form-select" aria-label="Default select example" name="has_account" id="has_account"> 
+      <option value="">Select</option>
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+    </div>
+
+    <div class="socialDiv" style="display:none ;">
+      <div class="mb-3">
+        <label for="llink" class="form-label">Link</label>
+        <input type="text" class="form-control" id="link" name="link">
+      </div>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
@@ -113,8 +130,28 @@
         });
 
         // Form
+
+        $('#has_account').change(function(){
+          // alert($(this).val());
+          let has_account_status = $(this).val();
+          if(has_account_status == 1) {
+            $('.socialDiv').show();
+            
+          }else{
+            $('.socialDiv').hide();
+          }
+        })
+
+
         $('#registationform').submit(function(){
-          alert("Submited");
+          // alert("Submited");
+          let email = $(this).find('input[name="email"]').val();
+          let phone = $(this).find('input[name="phone"]').val();
+          let gender = $(this).find('select[name="gender"] option').filter(':selected').val();
+          let has_account = $(this).find('select[name="has_account"] option').filter(':selected').val();
+          let link = $(this).find('input[name="link"]').val();
+                   
+          alert (link);
         })
 
       });
